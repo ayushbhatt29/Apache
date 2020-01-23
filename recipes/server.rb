@@ -1,4 +1,4 @@
-#
+
 # Cookbook:: apache
 # Recipe:: server
 #
@@ -11,9 +11,11 @@ service 'apache2' do
 	    action [:enable, :start]
 end
 file '/var/www/html/index.html' do
-	  content '<html>
+	  content "<html>
 	    <body>
 	        <h1>hello world</h1>
-		  </body>
-		  </html>'
+		<p>hostname= #{node['hostname']}</p>
+		<p> Ipaddress =#{node['ipaddress']} </p>
+		 </body>
+		  </html>"
 end
